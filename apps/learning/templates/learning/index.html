@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load qr_code%}
+
+
+{% block content %}
+
+
+<div class="container py-5">
+  <div class="row">
+    <div class="col">
+      <h1>Home</h1>
+    </div>
+  </div>
+</div>
+
+<!-- Erstellen von Card Elemente -->
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for learn in learnings %}
+    <div class="col">
+      <div class="card">
+        {% qr_from_text learn.title size="H" image_format="png" error_correction="L" %}
+        <div class="card-body">
+          <h5 class="card-title">{{ learn.title }}</h5>
+          <p class="card-text">{{ learn.description }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
