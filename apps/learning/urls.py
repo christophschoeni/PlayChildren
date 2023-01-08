@@ -20,7 +20,11 @@ from . import views
 from django.conf.urls.static import static
 from django.urls import path
 
+
+app_name = 'learning'
+
 urlpatterns = [
-    path('', views.index, name='home')
+    path('', views.index, name='index'),
+    path('scanner/', views.scanner, name='scanner')
     
 ]
